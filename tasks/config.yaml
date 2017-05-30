@@ -13,6 +13,7 @@
 # under the License.
 ---
 - name: Template logrotate.d config files.
+  become: yes
   template:
     dest: "{{ logrotate_template_logrotate_config_dest }}/{{ item.name }}"
     group: root
