@@ -13,12 +13,22 @@
 # under the License.
 ---
 - hosts: localhost
-  sudo: yes
   vars:
     rolename: "{{ lookup('pipe', 'pwd') | dirname | basename }}"
+    logrotate_configs:
+      - name: foo
+        log: /var/log/foo.log
+        options:
+          - compress
+          - missingok
+          - rotate 7
+          - daily
+          - notifempty
+
   pre_tasks:
     # Make sure OS does not have a stale package cache.
     - name: Update apt cache.
+      become: yes
       apt:
         update_cache: yes
       when: ansible_os_family == 'Debian'
