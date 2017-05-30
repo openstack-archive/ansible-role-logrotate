@@ -1,4 +1,4 @@
-# Copyright 2015 Red Hat, Inc.
+# Copyright 2017 Red Hat, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,6 +12,19 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 ---
+
+# tasks/main.yaml
+logrotate_task_manager:
+  - install
+  - config
+
+# tasks/install.yaml
+logrotate_install_method: package
+
+logrotate_package_name: logrotate
+logrotate_package_state: installed
+
+# tasks/config.yaml
 logrotate_configs: []
 
 logrotate_template_logrotate_config_dest: /etc/logrotate.d
