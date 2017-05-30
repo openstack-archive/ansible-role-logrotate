@@ -13,6 +13,7 @@
 # under the License.
 ---
 - name: Ensure logrotate is installed.
-  apt:
-    pkg: logrotate
-    state: installed
+  become: yes
+  package:
+    name: "{{ logrotate_package_name }}"
+    state: "{{ logrotate_package_state }}"
