@@ -14,7 +14,7 @@
 ---
 - hosts: localhost
   vars:
-    rolename: "{{ lookup('pipe', 'pwd') | dirname | basename }}"
+    rolename: ansible-role-logrotate
 
   pre_tasks:
     # Make sure OS does not have a stale package cache.
