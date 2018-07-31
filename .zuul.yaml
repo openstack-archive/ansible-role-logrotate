@@ -5,9 +5,9 @@
       - zuul: openstack/ansible-role-logrotate
 
 - job:
-    name: ansible-role-logrotate-fedora-27
+    name: ansible-role-logrotate-fedora-latest
     parent: ansible-role-logrotate
-    nodeset: fedora-27
+    nodeset: fedora-latest
 
 - job:
     name: ansible-role-logrotate-ubuntu-bionic
@@ -21,18 +21,18 @@
 
 - project:
     templates:
-      - windmill-jobs-fedora-27
+      - windmill-jobs-fedora-latest
       - windmill-jobs-bionic
       - windmill-jobs-xenial
     check:
       jobs:
-        - ansible-role-logrotate-fedora-27
+        - ansible-role-logrotate-fedora-latest
         - ansible-role-logrotate-ubuntu-bionic
         - ansible-role-logrotate-ubuntu-xenial
         - tox-linters
     gate:
       jobs:
-        - ansible-role-logrotate-fedora-27
+        - ansible-role-logrotate-fedora-latest
         - ansible-role-logrotate-ubuntu-bionic
         - ansible-role-logrotate-ubuntu-xenial
         - tox-linters
