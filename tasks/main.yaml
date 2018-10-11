@@ -12,7 +12,7 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 ---
-- include: "{{ logrotate_task }}.yaml"
+- include_tasks: "{{ logrotate_task }}.yaml"
   with_items: "{{ logrotate_task_manager }}"
   loop_control:
     loop_var: logrotate_task
