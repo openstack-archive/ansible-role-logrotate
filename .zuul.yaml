@@ -14,25 +14,17 @@
     parent: ansible-role-logrotate
     nodeset: ubuntu-bionic
 
-- job:
-    name: ansible-role-logrotate-ubuntu-xenial
-    parent: ansible-role-logrotate
-    nodeset: ubuntu-xenial
-
 - project:
     templates:
       - windmill-jobs-fedora-latest
       - windmill-jobs-bionic
-      - windmill-jobs-xenial
     check:
       jobs:
         - ansible-role-logrotate-fedora-latest
         - ansible-role-logrotate-ubuntu-bionic
-        - ansible-role-logrotate-ubuntu-xenial
         - tox-linters
     gate:
       jobs:
         - ansible-role-logrotate-fedora-latest
         - ansible-role-logrotate-ubuntu-bionic
-        - ansible-role-logrotate-ubuntu-xenial
         - tox-linters
