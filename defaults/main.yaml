@@ -22,7 +22,7 @@ logrotate_task_manager:
 logrotate_install_method: package
 
 logrotate_package_name: logrotate
-logrotate_package_state: installed
+logrotate_package_state: present
 
 # tasks/config.yaml
 logrotate_configs: []
