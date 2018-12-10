@@ -12,7 +12,7 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 ---
-- name: Template logrotate.d config files.
+- name: Template logrotate.d config files
   become: yes
   template:
     dest: "{{ logrotate_template_logrotate_config_dest }}/{{ item.name }}"
